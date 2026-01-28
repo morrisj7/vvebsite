@@ -16,7 +16,7 @@ $RECYCLE.BIN/
 *.swo
 *~
 .#*
-\#*#
+#*#
 
 # Editor Files
 .vscode/
