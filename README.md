@@ -60,6 +60,8 @@ https://raw.githubusercontent.com/morrisj7/vvebsite/main/<directory>/<filename>
 https://raw.githubusercontent.com/morrisj7/vvebsite/main/images/logo.png
 ```
 
+> **Note**: This approach works well for personal sites and testing. For high-traffic production sites, see the "Important Considerations" section below for recommendations on using a proper CDN.
+
 ### Integration Methods
 
 1. **Code Blocks**: Use Custom CSS or Code Injection in Squarespace to reference asset URLs
@@ -100,6 +102,25 @@ https://raw.githubusercontent.com/morrisj7/vvebsite/main/[directory]/[filename]
 ## Notes
 
 - All assets in this repository are served over HTTPS
-- GitHub provides unlimited bandwidth for public repositories
+- GitHub has rate limits for raw content access (especially for unauthenticated requests)
 - Assets are cached by GitHub's CDN for fast delivery
 - Consider using a branch strategy (e.g., `main` for production, `dev` for testing)
+
+## Important Considerations
+
+### Production Use
+While GitHub raw URLs work well for testing and low-traffic sites, be aware:
+- GitHub's raw content service is not designed as a production CDN
+- No uptime guarantees are provided
+- Rate limiting may affect high-traffic websites
+
+### Alternatives for High-Traffic Sites
+For production websites with significant traffic, consider:
+1. **GitHub Pages**: Enable GitHub Pages on this repository for better reliability
+2. **CDN Services**: Use a dedicated CDN like Cloudflare, CloudFront, or Fastly
+3. **Squarespace Native**: Upload smaller assets directly to Squarespace when possible
+
+### Rate Limiting
+- Unauthenticated requests: Limited to 60 requests per hour per IP
+- Authenticated requests: Higher limits apply
+- For high-traffic sites, assets should be properly cached by Squarespace
