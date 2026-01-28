@@ -99,10 +99,10 @@ Or construct the URL manually:
 https://raw.githubusercontent.com/morrisj7/vvebsite/main/[directory]/[filename]
 ```
 
-## Notes
+## Technical Notes
 
 - All assets in this repository are served over HTTPS
-- GitHub has rate limits for raw content access (especially for unauthenticated requests)
+- GitHub's raw content service supports CORS (Cross-Origin Resource Sharing), allowing assets to be loaded from Squarespace sites
 - Assets are cached by GitHub's CDN for fast delivery
 - Consider using a branch strategy (e.g., `main` for production, `dev` for testing)
 
@@ -112,7 +112,7 @@ https://raw.githubusercontent.com/morrisj7/vvebsite/main/[directory]/[filename]
 While GitHub raw URLs work well for testing and low-traffic sites, be aware:
 - GitHub's raw content service is not designed as a production CDN
 - No uptime guarantees are provided
-- Rate limiting may affect high-traffic websites
+- GitHub may apply abuse protection mechanisms for excessive usage
 
 ### Alternatives for High-Traffic Sites
 For production websites with significant traffic, consider:
@@ -120,7 +120,7 @@ For production websites with significant traffic, consider:
 2. **CDN Services**: Use a dedicated CDN like Cloudflare, CloudFront, or Fastly
 3. **Squarespace Native**: Upload smaller assets directly to Squarespace when possible
 
-### Rate Limiting
-- Unauthenticated requests: Limited to 60 requests per hour per IP
-- Authenticated requests: Higher limits apply
-- For high-traffic sites, assets should be properly cached by Squarespace
+### Usage Guidelines
+- Squarespace will typically cache assets after first load, reducing requests to GitHub
+- Monitor your asset usage to ensure you're within GitHub's fair use policies
+- For mission-critical assets, consider redundancy strategies
